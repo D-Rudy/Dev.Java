@@ -1,0 +1,48 @@
+JAVA IO
+
+Le package java.io est composé de nombreuses classe réparties en quatre catégories suivant les opération qu"elles réalisent:
+	-Lecture ou Ecriture;
+	-Données textuelles ou Binaire
+	
++---------+-------------+--------------+
+|         |             |              |
+|         | LECTURE     | ECRITURE     |
+|         |             |              |
++---------+-------------+--------------+
+|         |             |              |
+| TEXTE   | READER      | WRITER       |
+|         |             |              |
++---------+-------------+--------------+
+|         |             |              |
+| BINAIRE | INPUTSTREAM | OUTPUTSTREAM |
+|         |             |              |
++---------+-------------+--------------+
+
+Chaque classe abstraite a une correspondance (lecture texte, lecture binaire, ecriture texte, ecriture binaire)
+
+Ces classe abstraite sont implémentée par des classes concrète qui se déduit à leur suffixe
+
+	
++---------+-----------------------+------------------------+
+|         |                       |                        |
+|         |      LECTURE          |     ECRITURE           |
+|         |                       |                        |
++---------+-----------------------+------------------------+
+|         |                       |                        |
+|         | READER                | WRITER                 |
+|         | +- BufferedReader     | +-BufferdeWriter       |
+| TEXTE   | +- StringReader       | +-StringWriter         |
+|         | +- ...                | +-FileWriter           |
+|         |                    ^  | +- ...               | |
+|         |                   /|\ |                      | |          
++---------+--InputStreamReader-|--|---OutpuStreamWriter--|-+
+|         |                    |  |                     \|/|
+| BINAIRE | INPUTSTREAM        |  | OUTPUTSTREAM         v |
+|         | +- FileInputStream    | +- FileOutputStream    |
+|         | +- ...                | +- ...                 |
++---------+-----------------------+------------------------+
+
+Pour écrire un flux de teste on utlisera BufferReader par exemple;
+
+InputStreamReader donne une interface de type Reader sur des données provenant d'un InputStream
+
